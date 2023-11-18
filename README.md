@@ -33,3 +33,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Use the EN|FR in the top right corner of the page to toggle between English and French.
 Some of the statistics were not updated so the data might not be accurate for all countries as of now.
+<img width="1424" alt="Screenshot 2023-11-18 at 3 58 52 PM" src="https://github.com/dimeji-code/covid-tracker/assets/34945097/cb694ca9-ce3d-4eed-a0b3-065e644e0dd9">
