@@ -12,7 +12,6 @@ const lang = useSelector((state:any) => state.window.lang)
 
   useEffect(() =>{
 
-    // fetch(`https://api.apify.com/v2/key-value-stores/moxA3Q0aZh5LosewB/records/LATEST?disableRedirect=true`)
     fetch("https://api.apify.com/v2/key-value-stores/fabbocwKrtxSDf96h/records/LATEST?disableRedirect=true")
     .then(response =>{
       if(response.ok){
@@ -24,7 +23,6 @@ const lang = useSelector((state:any) => state.window.lang)
       
       setData(jsonData)
       setStateCases(jsonData.infectedByRegion.filter((item:any) => (item.region != "Canada" && item.region!= "Repatriated travellers")))
-      
       
     })
 

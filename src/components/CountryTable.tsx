@@ -11,21 +11,24 @@ const CountryTable = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() =>{
-  
-      fetch(`https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true`)
-      .then(response =>{
-        if(response.ok){
-          return response.json()
-          
-        }
-      }
-      )
-      .then((jsonData: any) => {
-        setData(jsonData)
-        console.log(jsonData)
-      })
+        try{
+            fetch(`https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true`)
+            .then(response =>{
+                if(response.ok){
+                return response.json()
+                }
+            }
+            )
+            .then((jsonData: any) => {                
+                setData(jsonData)
+                console.log(jsonData)
+            })
+        }catch(e){
+            console.log(e);            
+    }
   
     },[])
+
     const showModal = (con:string,api:string) => {
         dispatch(toggleModal({modalOpen: true}))
         dispatch(setCountry({country: con,countryApi:api}))
@@ -60,7 +63,7 @@ const CountryTable = () => {
 
             
         {
-                 data && data.map((item:any) =>( 
+                data && data.map((item:any) =>( 
                     <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 flex w-full ">
                         <th scope="row" className="py-4 px-6 w-1/3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {item.country}

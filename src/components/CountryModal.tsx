@@ -10,18 +10,23 @@ const CountryModal = () => {
     const [data, setData] = useState({infected:null,deceased:null,recovered:null, activeCases:null,tested:null,critical:null,lastUpdatedAtApify:""})
 
     useEffect(() =>{
-
-        fetch(countryApi)
-        .then(response =>{
-          if(response.ok){
-            return response.json()
-          }
-        })
-        .then((jsonData: any) => {
-          setData(jsonData)
-          console.log("JSON DATA: ",jsonData)
-          console.log("country is: ",country)
-        })
+        try{
+            fetch(countryApi)
+            .then(async response =>{
+            if(response.ok){
+                var data =  response.json()
+                setData(await data)
+                console.log("JSON DATA: ",data)
+                console.log("country is: ",country)
+            }else{
+                console.log("the error is here");
+                return 
+            }
+            })
+        }catch(e){
+            console.log("err ",e);
+            
+        }
     },[])
 
     const parseDate = (dateString:string) =>{
