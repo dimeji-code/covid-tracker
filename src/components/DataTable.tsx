@@ -7,20 +7,20 @@ const DataTable = (props:any) => {
     var province = props.data
     for(var i in province){
         console.log(province[i]);
-  
+
         if(province[i].region == "Newfoundland and Labrador"){
-          province[i].region = "Newfoundland"
+            province[i].region = "Newfoundland"
         }
         if(province[i].region == "Northwest Territories"){
-          province[i].region = "N.W. Territories"
+            province[i].region = "N.W. Territories"
         }
         if(province[i].region == "Prince Edward Island"){
-          province[i].region = "P.E.I"
+            province[i].region = "P.E.I"
         }
         
-      }
+    }
 
-  return (
+    return (
     
 <div className="overflow-x-auto relative shadow-md sm:rounded-lg w-full">
     <table className=" text-sm text-left text-gray-500 dark:text-gray-400 w-full">
@@ -31,13 +31,13 @@ const DataTable = (props:any) => {
             <tr className=" w-full mb-3 indent-5">
                 <h2 className="py-3 px-6 w-full text-md font-medium">
                     {lang=="En"?"Total Cases : ":"Nombre de cas : "}
-                <span> {props.inf}</span>  
+                <span> {parseInt(props.inf)?.toLocaleString()}</span>  
                 </h2>
             </tr>
             <tr className=" w-full mb-3 indent-5">
                 <h2 className="py-3 px-6 w-full text-md font-medium">
                     {lang=="En"?"Total Deaths : ":"Des morts : "}
-                <span> {props.dec}</span>
+                <span> {parseInt(props.dec)?.toLocaleString()}</span>
                 </h2>
             </tr>
         </div>
@@ -62,15 +62,15 @@ const DataTable = (props:any) => {
             
         {
                   province.map((item:any) =>(
-                    <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 flex w-full ">
+                    <tr key={item.region} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 flex w-full ">
                         <th scope="row" className="py-4 px-6 w-1/3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {item.region}
                         </th>
                         <td className="py-4 px-6 w-1/3">
-                            {item.infectedCount}
+                            {parseInt(item.infectedCount)?.toLocaleString()}
                         </td>
                         <td className="py-4 px-6 w-1/3">
-                            {item.deceasedCount}
+                            {parseInt(item.deceasedCount)?.toLocaleString()}
                         </td>
                     </tr>
                 ))

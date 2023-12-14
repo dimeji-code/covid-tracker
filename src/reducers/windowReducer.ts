@@ -8,6 +8,7 @@ const initialState = {
     lang:"En",
     toastOpen: false,
     modalOpen: false,
+    modalCompare: false,
     country:"",
     countryApi:""
 }
@@ -32,6 +33,9 @@ export const windowSlice = createSlice({
     toggleModal:(state,action) =>{
         state.modalOpen = action.payload.modalOpen;
     },
+    toggleModalCompare:(state,action) =>{
+        state.modalCompare = action.payload.modalCompare;
+    },
     setCountry:(state,action)=>{
         state.country = action.payload.country;
         state.countryApi = action.payload.countryApi
@@ -42,5 +46,5 @@ export const windowSlice = createSlice({
     
 })
 
-export const {toggleLanguage,toggleToast, toggleModal,setCountry} = windowSlice.actions
+export const {toggleLanguage,toggleToast, toggleModal,toggleModalCompare,setCountry} = windowSlice.actions
 export default windowSlice.reducer

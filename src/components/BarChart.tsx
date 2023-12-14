@@ -11,9 +11,6 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 
-// import faker from 'faker';
-// data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -48,6 +45,7 @@ const BarChart = (props:any) => {
     
     const numb =province.map((item:any)=>item.infectedCount/1000);
     const deceased = province.map((item:any)=>item.deceasededCount);
+    
     const options = {
         responsive: true,
         plugins: {

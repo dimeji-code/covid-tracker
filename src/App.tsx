@@ -7,9 +7,11 @@ import Toast from "./components/Toast"
 import CountryModal from './components/CountryModal';
 import { useSelector } from 'react-redux';
 import Footer from './components/Footer';
+import CompareModal from './components/CompareModal';
 
 function App() {
   const modal = useSelector((state:any) => state.window.modalOpen)
+  const modalCompare = useSelector((state:any) => state.window.modalCompare)
 
 
 
@@ -19,6 +21,7 @@ function App() {
       <Body/>
       <Toast/>
       {modal && <CountryModal />}
+      {modalCompare && <CompareModal />}
       <Footer/>
       
     </div>

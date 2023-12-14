@@ -7,10 +7,20 @@ const CountryModal = () => {
     const country = useSelector((state:any) => state.window.country)
     const countryApi = useSelector((state:any) => state.window.countryApi)
     const dispatch = useDispatch()
-    const [data, setData] = useState({infected:null,deceased:null,recovered:null, activeCases:null,tested:null,critical:null,lastUpdatedAtApify:""})
+    const [data, setData] = useState({
+        infected:null,totalCases:null,
+        deceased:null,deaths:null,
+        recovered:null,dischargedHealed:null
+        ,tested:null,testsPerformed:null,
+        // critical:null,
+        activeCases:null, active:null,
+        lastUpdatedAtApify:""})
 
     useEffect(() =>{
-        try{
+        console.log("api: ", countryApi);
+
+
+        try{ 
             fetch(countryApi)
             .then(async response =>{
             if(response.ok){
@@ -33,6 +43,9 @@ const CountryModal = () => {
         return (dateString).split("T")[0];
     }
 
+    const formatValue = (number:number) =>{
+        return  number.toLocaleString()
+    }
     return (
     <div className="fixed top-0 flex w-full h-screen z-50 justify-center items-center  bg-opacity-40 bg-gray-900">
         
@@ -53,7 +66,9 @@ const CountryModal = () => {
                            {lang=="En"?"Infected:":"Infecté:"}
                         </th> 
                         <th scope="col" className="py-3 px-6 w-3/4">
-                            {data.infected!=null?data.infected:"N/A"}
+                            {data.infected!=null?formatValue(data.infected):""}
+                            {data.totalCases!=null?formatValue(data.totalCases):""}
+                            {(data.infected==null && (data.totalCases==null))?"N/A":""}
                         </th>  
                     </tr>
                     <tr className=" w-full mb-3 flex justify-between">
@@ -61,15 +76,19 @@ const CountryModal = () => {
                             {lang=="En"?"Deceased:":"Défunt:"}
                         </th> 
                         <th scope="col" className="py-3 px-6 w-3/4">
-                            {data.deceased!=null?data.deceased:"N/A"}
+                        {data.deceased!=null?formatValue(data.deceased):""}
+                        {(data.deaths!=null )?(formatValue(data.deaths)):""}
+                        {(data.deaths==null && (data.deceased==null))?"N/A":""}
                         </th>  
                     </tr>
                     <tr className=" w-full mb-3 flex justify-between">
                         <th scope="col" className="py-3 px-6 w-2/4">
-                            {lang=="En"?"Active Cases:":"Cas actifs:"}
+                            {lang=="En"?"Recovered:":"Rétabli:"}
                         </th> 
                         <th scope="col" className="py-3 px-6 w-3/4">
-                            {data.activeCases!=null?data.activeCases:"N/A"}
+                        {data.recovered!=null?formatValue(data.recovered):""}
+                            {data.dischargedHealed!=null?formatValue(data.dischargedHealed):""}
+                        {(data.recovered==null && (data.dischargedHealed==null))?"N/A":""}
                         </th>  
                     </tr>
                     <tr className=" w-full mb-3 flex justify-between">
@@ -77,15 +96,19 @@ const CountryModal = () => {
                             {lang=="En"?"Tested:":"Testé:"}
                         </th> 
                         <th scope="col" className="py-3 px-6 w-3/4">
-                            {data.tested!=null?data.tested:"N/A"}
+                            {data.tested!=null?formatValue(data.tested):""}
+                            {data.testsPerformed!=null?formatValue(data.testsPerformed):""}
+                        {(data.tested==null && (data.testsPerformed==null))?"N/A":""}
                         </th>  
                     </tr>
                     <tr className=" w-full mb-3 flex justify-between">
                         <th scope="col" className="py-3 px-6 w-2/4">
-                            {lang=="En"?"Critical:":"Critique:"}
+                            {lang=="En"?"Active Cases:":"Cas actifs:"}
                         </th> 
                         <th scope="col" className="py-3 px-6 w-3/4">
-                            {data.critical!=null?data.critical:"N/A"}
+                            {data.activeCases!=null?formatValue(data.activeCases):""}
+                            {data.active!=null?formatValue(data.active):""}
+                            {(data.activeCases==null && (data.active==null))?"N/A":""}
                         </th>  
                     </tr>
                     <tr className=" w-full mb-3 flex justify-between">
