@@ -84,7 +84,7 @@ const CompareModal = () => {
                 
                 }
             </div>
-            <div className="flex flex-1 justify-center">
+            <div className="flex  justify-center">
                 <select name="comparison" id="comparison" onChange={handleSelect}>
                     <option value="infected">Infected</option>
                     <option value="deceased">Deceased</option>

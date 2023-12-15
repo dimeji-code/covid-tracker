@@ -76,7 +76,7 @@ const Body = () => {
             }</h4>
           </div>
             
-          <div className="container flex w-full space-x-4 justify-evenly" style={{minHeight:'200px'}}>
+          <div className="container flex w-full space-x-4 justify-evenly" style={{minHeight:'400px'}}>
             <BarChart data={stateCases} />
           </div>
           <DataTable data={stateCases} inf={canadaData.infected} dec={canadaData.deceased} />

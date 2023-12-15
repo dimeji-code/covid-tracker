@@ -45,9 +45,10 @@ const BarChart = (props:any) => {
     
     const numb =province.map((item:any)=>item.infectedCount/1000);
     const deceased = province.map((item:any)=>item.deceasededCount);
-    
+
     const options = {
         responsive: true,
+        aspectRatio:1,
         plugins: {
           legend: {
             position: 'top' as const,
@@ -76,7 +77,7 @@ const BarChart = (props:any) => {
         ],
       };
 
-    return <Bar options={options} data={data} />;
+    return <Bar options={options} data={data}  />;
 
 }
 

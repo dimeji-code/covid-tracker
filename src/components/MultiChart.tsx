@@ -38,6 +38,8 @@ const MultiChart = (props: Props) => {
     const options = {
         responsive: true,
         indexAxis: 'y' as const,
+        maintainAspectRatio: false,
+        // aspectRatio:,
         plugins: {
             legend: {
             position: 'top' as const,
@@ -62,7 +64,7 @@ const MultiChart = (props: Props) => {
 
     return (
     <div>
-        <Bar options={options} data={data} />
+        <Bar width={100} height={300} options={options} data={data} />
     </div>
     )
 }
