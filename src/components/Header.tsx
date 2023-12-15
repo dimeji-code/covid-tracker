@@ -8,7 +8,6 @@ const Header = () => {
 
   const dispatch = useDispatch()
   const lang = useSelector((state:any) => state.window.lang)
-  const toast = useSelector((state:any) => state.window.toastOpen)
   
   const toastFunction = () =>{
     dispatch(toggleToast({toastOpen: true}))

@@ -68,11 +68,6 @@ const BarChart = (props:any) => {
             data: numb,
             backgroundColor: 'rgba(154, 105, 243, 0.5)',
           },
-          // {
-          //   label: (lang == "En"?'Deceased':"Défunt"),
-          //   data: deceased,
-          //   backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          // },
           
         ],
       };

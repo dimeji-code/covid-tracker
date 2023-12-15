@@ -7,10 +7,8 @@ import CountryModal from './CountryModal';
 
 const CountryTable = () => {
     const lang = useSelector((state:any) => state.window.lang)
-    const modal = useSelector((state:any) => state.window.modalOpen)
     const dispatch = useDispatch()
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() =>{
         try{
@@ -34,10 +32,6 @@ const CountryTable = () => {
     const showModal = (con:string,api:string) => {
         dispatch(toggleModal({modalOpen: true}))
         dispatch(setCountry({country: con,countryApi:api}))
-        // console.log("modal should be open");
-        console.log("modal should be open");
-        
-        // return(<CountryModal />)
     }
 
   return (

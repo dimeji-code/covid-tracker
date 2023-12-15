@@ -12,7 +12,6 @@ const CountryModal = () => {
         deceased:null,deaths:null,
         recovered:null,dischargedHealed:null
         ,tested:null,testsPerformed:null,
-        // critical:null,
         activeCases:null, active:null,
         lastUpdatedAtApify:""})
 
@@ -39,7 +38,7 @@ const CountryModal = () => {
     const parseDate = (dateString:string) =>{
         return (dateString).split("T")[0];
     }
-
+// format numbers by adding commas
     const formatValue = (number:number) =>{
         return  number.toLocaleString()
     }

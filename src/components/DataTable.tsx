@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
 
 const DataTable = (props:any) => {
@@ -7,7 +7,7 @@ const DataTable = (props:any) => {
     var province = props.data
     for(var i in province){
         console.log(province[i]);
-
+        // shorten longer names
         if(province[i].region == "Newfoundland and Labrador"){
             province[i].region = "Newfoundland"
         }

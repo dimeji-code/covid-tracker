@@ -23,6 +23,7 @@ const MultiChart = (props: Props) => {
 
     var numb:any = [] ;
     var compLanguage = ""
+    // translate and retrieve number for different categories
     if (props.comparisonType == "infected"){
         {lang == "En"?compLanguage = "Infected":compLanguage ="Infecté" }
         numb = groups.map((country:any) => country.infected)

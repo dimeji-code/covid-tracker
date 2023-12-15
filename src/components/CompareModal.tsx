@@ -29,7 +29,7 @@ const CompareModal = () => {
             console.log(e);            
     }
     },[])
-
+// clear selected data
     const reset = () => {
         setSelected([])
         setSelectedData([])
@@ -39,7 +39,7 @@ const CompareModal = () => {
     const handleSelect = (event : any) => {
         setComparison(event.target.value)
     }
-
+// display and remove error message after 3 seconds
     const errorMessage = (err: string) => {
         setErrMessage(err)
 
