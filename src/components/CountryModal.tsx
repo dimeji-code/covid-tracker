@@ -26,8 +26,6 @@ const CountryModal = () => {
             if(response.ok){
                 var data =  response.json()
                 setData(await data)
-                console.log("JSON DATA: ",data)
-                console.log("country is: ",country)
             }else{
                 console.log("the error is here");
                 return 
@@ -35,7 +33,6 @@ const CountryModal = () => {
             })
         }catch(e){
             console.log("err ",e);
-            
         }
     },[])
 

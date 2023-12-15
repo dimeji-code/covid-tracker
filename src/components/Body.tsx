@@ -55,7 +55,7 @@ const Body = () => {
   },[modal, modalCompare])
 
   return (
-    <div className={` bgbg px-6 py-8 mt-8 pt-20 flex h-full z-20 `}>
+    <div className={` bgbg px-6 py-8 mt-8 md:mt-0 pt-28 flex h-full z-20 `}>
       
         <div className="container align-baseline space-y-6 my-6 mx-auto sm:px-4 w-full flex-col-reverse md:flex-row ">
           <div className="container text-center space-y-2">

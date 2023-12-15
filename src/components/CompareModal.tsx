@@ -63,10 +63,8 @@ const CompareModal = () => {
                 { data.map((item:any) =>  (
                     <div  key={item.country} onClick={()=>{
                         if ( (selected.includes(item.country) == false) && (selected.length < 3)){
-                            // console.log(selected);
                             setSelected([...selected,item.country])
                             setSelectedData([...selectedData, item])
-                            console.log(selectedData);
                         }else if (selected.length == 3){
                             errorMessage("Maximum of 3 Countries!!")
                         }
@@ -86,11 +84,11 @@ const CompareModal = () => {
             </div>
             <div className="flex  justify-center">
                 <select name="comparison" id="comparison" onChange={handleSelect}>
-                    <option value="infected">Infected</option>
-                    <option value="deceased">Deceased</option>
-                    <option value="tested">Tested</option>
+                    <option value="infected"> {lang == "En"?"Infected":"Infecté" }</option>
+                    <option value="deceased"> {lang == "En"?"Deceased":"Décédé" }</option>
+                    <option value="tested"> {lang == "En"?"Tested":"Testé" }</option>
                 </select>
-                <Button title="Reset" style="red" onClick={()=>reset()}/>
+                <Button title={lang == "En"?"Reset":"Réinitialiser" }style="red" onClick={()=>reset()}/>
             </div>
             <div className="flex justify-center">
                 <p className="font-light text-[#f76262]">{errMessage}</p>

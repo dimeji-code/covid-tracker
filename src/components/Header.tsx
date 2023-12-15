@@ -38,14 +38,14 @@ const Header = () => {
       </button>
         
   </div>
-  <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-    <ul className="flex flex-col p-4 mt-4  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  dark:bg-neutral-800 md:bg-neutral-800">
-      <li>
+  <div className=" justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul className="flex flex-col p-1 mt-4  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  dark:bg-neutral-800 md:bg-[neutral-800]">
+      <li className=" justify-between items-center w-full md:flex md:w-auto md:order-1">
         <a onClick={()=> goToByScroll('country')} className="block py-2 pr-4 pl-3 text-blue-100 text-base decoration-4 cursor-pointer hover:text-white rounded md:bg-transparent md:text-blue-100 md:p-0 dark:text-white" aria-current="page">
           {lang == "En"?"Countries":"Des pays"}
           </a>
       </li>
-      <li>
+      <li className=" justify-between items-center w-full md:flex md:w-auto md:order-1">
         <a onClick={() =>{ dispatch( toggleModalCompare({modalCompare : true})) }} className="block py-2 pr-4 pl-3 text-blue-100 text-base decoration-4 cursor-pointer hover:text-white rounded md:bg-transparent md:text-blue-100 md:p-0 dark:text-white" aria-current="page">
         {lang == "En"?"Compare":"Comparer"}
           </a>
